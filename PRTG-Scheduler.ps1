@@ -75,7 +75,7 @@ Function This-ExecutePHP($command = ""){
     $pinfo.RedirectStandardError = $true
     $pinfo.RedirectStandardOutput = $true
     $pinfo.UseShellExecute = $false
-    $pinfo.Arguments = "$($phpPath)app\index.php Welcome $($command)"
+    $pinfo.Arguments = "$($phpPath)app\index.php PRTGScheduler $($command)"
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
     $p.Start() | Out-Null

@@ -262,7 +262,7 @@ class Maintenance_model extends CI_Model {
     if(isset($maintenanceWindow->definition[3]))
     {  $maintenanceWindow->description = $maintenanceWindow->definition[3]; }
 
-    # convert the time of the maintenance 
+    # convert the time of the maintenance
     $maintenanceWindow = $this->rrule_model->convertMaintenanceTime($maintenanceWindow);
 
     # we need to be able to sort the maintenance in to get the closest one
@@ -402,11 +402,9 @@ class Maintenance_model extends CI_Model {
         { $maintenanceWindow->type_raw = "onetime"; }
       }
 
-      }
-
-
-      return $maintenanceWindow;
+        return $maintenanceWindow;
   }
+
 
   # put everything into a PRTG conform format
   public function prtgOut($prtgChannels,$defectMaintenanceWindows){
