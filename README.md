@@ -6,4 +6,4 @@ With PRTG Scheduler, you can configure customized maintenance windows for every 
 
 Frequently asked questions can be [found in the issues, labeled as questions](https://github.com/PaesslerAG/PRTGScheduler/issues?q=is%3Aissue+is%3Aclosed).
 
-Check the [https://github.com/PaesslerAG/PRTGScheduler/wiki](Wiki) for installation instructions.
+Check the [Wiki](https://github.com/PaesslerAG/PRTGScheduler/wiki) for installation instructions.
