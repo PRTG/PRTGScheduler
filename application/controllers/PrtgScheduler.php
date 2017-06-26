@@ -27,7 +27,7 @@ class PrtgScheduler extends CI_Controller {
 
 	public function index()
 	{
-
+		echo "Hello World!";
 	}
 
 	public function setMaintenance(){
@@ -55,7 +55,7 @@ class PrtgScheduler extends CI_Controller {
 			# now set the maintenances
 			$this->maintenance_model->setMaintenance($sensorMaintenances[0]);
 			$this->maintenance_model->setMaintenance($deviceMaintenances[0]);
-			$this->maintenance_model->setMaintenance($groupsMaintenances[0]);
+			$this->maintenance_model->setMaintenance($groupMaintenances[0]);
 
 			# now we create the tables for each object type
 			$data['sensors'] = $this->table_model->generateMaintenanceTable($sensorMaintenances[0]);

@@ -23,6 +23,10 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <style type='text/css'>
+  .label-google {
+    background-color:#f9f9f9;
+    color:#000000 !important;
+  }
   /*!
    * Bootstrap v3.3.7 (http://getbootstrap.com)
    * Copyright 2011-2017 Twitter, Inc.

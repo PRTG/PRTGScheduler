@@ -49,7 +49,7 @@ class Rrule_model extends CI_Model {
   	public function convertMaintenanceTime($maintenanceWindow){
 
       # ne need to convert the time as UTC
-      $timeZone = new DateTimeZone('UTC');
+      $UTC = new DateTimeZone('UTC');
 
         if(isset($maintenanceWindow->rrule)){
 
@@ -88,8 +88,8 @@ class Rrule_model extends CI_Model {
   		$date_start = DateTime::createFromFormat("d/m/Y H:i e", $start_string);
   		$date_end   = DateTime::createFromFormat("d/m/Y H:i e", $end_string);
 
-      $date_start->setTimeZone($timeZone);
-  		$date_end->setTimeZone($timeZone);
+      $date_start->setTimeZone($UTC);
+  		$date_end->setTimeZone($UTC);
 
   		# if the end date is smaller than the start date, the maintenance ends the next day
   		if(($date_end < $date_start) && (!(isset($maintenanceWindow->endDate))))

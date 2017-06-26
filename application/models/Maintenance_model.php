@@ -126,7 +126,6 @@ class Maintenance_model extends CI_Model {
   # this function will set the maintenance windows for all given objects
   public function setMaintenance($objects){
 
-
     // first, let's get all currently set maintenances - to avoid setting them twice
     $list = json_decode(simplexml_load_string(file_get_contents(sprintf($this->getPrtgUrl('rproperty'),$this->config->item('prtg_sensorid'),"comments")))->result);
 
@@ -241,6 +240,7 @@ class Maintenance_model extends CI_Model {
 
     # we're done! now we can update the list of PRTG Scheduler
     file_get_contents(sprintf($this->getPrtgUrl('wproperty'),$this->config->item('prtg_sensorid'),"comments",json_encode($list)));
+
     if(strpos($http_response_header[0], " 200 "))
     { $this->log(sprintf("Active maintenances have been updated (%s)",count($list->active_maint_windows)),1); }
     else
@@ -410,6 +410,14 @@ class Maintenance_model extends CI_Model {
   public function prtgOut($prtgChannels,$defectMaintenanceWindows){
 
     $counter = 0;
+    $errorMsg = "";
+
+    if(count($defectMaintenanceWindows))
+    {
+      foreach($defectMaintenanceWindows as $objid => $id)
+      $errorMsg .= sprintf(" [%s] %s",$objid, join(", ",$defectMaintenanceWindows[$objid]));
+
+    }
 
     foreach($prtgChannels as $prtgChannel => $prtgChannelValue){
 
@@ -418,7 +426,7 @@ class Maintenance_model extends CI_Model {
 
       $prtgResult['prtg']['result'][$counter]['Channel'] = $prtgChannel;
       $prtgResult['prtg']['result'][$counter]['Value']   = $prtgChannelValue;
-
+      $prtgResult['prtg']['text']                        = $errorMsg;
 
       $counter++;
     }

@@ -15,7 +15,7 @@ class Table_model extends CI_Model {
       $this->lang->line('table_nextEnd'),
       $this->lang->line('table_duration'));
 
-    $template = array('table_open' => '<table class="table hoverable" style="width: auto;">');
+    $template = array('table_open' => '<table class="table hoverable" style="width: 1280px; margin-left: 0px;  ">');
     $this->table->set_template($template);
 
     foreach($objects as $object)
@@ -34,11 +34,11 @@ class Table_model extends CI_Model {
       $objGroup    = "<a href=''>".$object->group."</a>";
 
       # create the table headers including the corresponding rowspans
-      $objid   = array('data' => $objidUrl,  'rowspan' => count($object->maintenanceWindows)+2, 'valign' => 'top',);
-      $name    = array('data' => $objName,   'rowspan' => count($object->maintenanceWindows)+2, 'valign' => 'top' );
-      $device  = array('data' => $objDevice, 'rowspan' => count($object->maintenanceWindows)+2, 'valign' => 'top' );
-      $group   = array('data' => $objGroup,  'rowspan' => count($object->maintenanceWindows)+2, 'valign' => 'top' );
-      $probe   = array('data' => $objProbe,  'rowspan' => count($object->maintenanceWindows)+2, 'valign' => 'top' );
+      $objid   = array('data' => $objidUrl,  'rowspan' => count($object->maintenanceWindows)+2, 'style' => 'vertical-align:baseline;');
+      $name    = array('data' => $objName,   'rowspan' => count($object->maintenanceWindows)+2,  'style' => 'vertical-align:baseline;' );
+      $device  = array('data' => $objDevice, 'rowspan' => count($object->maintenanceWindows)+2,  'style' => 'vertical-align:baseline;' );
+      $group   = array('data' => $objGroup,  'rowspan' => count($object->maintenanceWindows)+2,  'style' => 'vertical-align:baseline;' );
+      $probe   = array('data' => $objProbe,  'rowspan' => count($object->maintenanceWindows)+2,  'style' => 'vertical-align:baseline;' );
 
 
       # the upcoming maintenance will be the top of the list
@@ -48,10 +48,10 @@ class Table_model extends CI_Model {
       # create the maintenance rows and add the start/end date of the maintenance as unix timestamp
       # this will then be converted to the local timezone of the browser that opens the maintenance overview
       # allowing to store maintenances in the timezone they should be executed at but display them in user's tz as well
-      $nextMaintenance           = array('data' => $upcomingMaintenance->description, 'colspan' => 3, 'valign' => 'top' );
-      $nextMaintenanceStart      = array('data' => '', 'class' => 'timestamp', 'data-timestamp' => $upcomingMaintenance->start_date->format('U'),   'valign' => 'top' );
-      $nextMaintenanceEnd        = array('data' => '', 'class' => 'timestamp', 'data-timestamp' => $upcomingMaintenance->end_date->format('U'), 'valign' => 'top' );
-      $nextMaintenanceDuration   = array('data' => $upcomingMaintenance->duration, 'valign' => 'top' );
+      $nextMaintenance           = array('data' => $upcomingMaintenance->description, 'colspan' => 3,  'style' => 'vertical-align:baseline;' );
+      $nextMaintenanceStart      = array('data' => '', 'class' => 'timestamp', 'data-timestamp' => $upcomingMaintenance->start_date->format('U'), 'style' => 'vertical-align:baseline;' );
+      $nextMaintenanceEnd        = array('data' => '', 'class' => 'timestamp', 'data-timestamp' => $upcomingMaintenance->end_date->format('U'),  'style' => 'vertical-align:baseline;' );
+      $nextMaintenanceDuration   = array('data' => $upcomingMaintenance->duration,  'style' => 'vertical-align:baseline;' );
 
       $this->table->add_row($objid,$name,$group,$probe,$nextMaintenance,$nextMaintenanceStart,$nextMaintenanceEnd,$nextMaintenanceDuration);
       $this->table->add_row(array(
@@ -64,11 +64,13 @@ class Table_model extends CI_Model {
       foreach($object->maintenanceWindows as $maintenanceWindow){
 
 
-          $disabled = "";
-        
+        $disabled = "";
+
+        if($maintenanceWindow->disabled === True)
+        { $disabled = '<span style="margin-top: -10px; "class="label label-default">Disabled</span> '; }
 
         $this->table->add_row(
-          array('data' => sprintf('%s<span class="label label-default">%s</span> <span class="label label-default">%s</span> %s<br />',$disabled, ucwords($maintenanceWindow->timeZone,'/'),$maintenanceWindow->type,$maintenanceWindow->description), 'colspan' => 3, 'title'=> ucfirst($maintenanceWindow->rruleReadable)),
+          array('data' => sprintf('%s<span style="margin-top: -10px; "class="label label-default">%s</span> <span class="label label-default">%s</span> <span class="label label-google">%s</span><br />',$disabled, ucwords($maintenanceWindow->timeZone,'/'),$maintenanceWindow->type,$maintenanceWindow->description), 'colspan' => 3, 'title'=> ucfirst($maintenanceWindow->rruleReadable)),
           array('data' => '', 'class' => 'timestamp','data-timestamp' => $maintenanceWindow->start_date->format('U')),
           array('data' => '', 'class' => 'timestamp','data-timestamp' => $maintenanceWindow->end_date->format('U')),
           $maintenanceWindow->duration
