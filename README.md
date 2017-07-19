@@ -18,3 +18,6 @@ in the report / sensor channels. New languages can be added easily.
 Frequently asked questions can be [found in the issues, labeled as questions](https://github.com/PaesslerAG/PRTGScheduler/issues?q=is%3Aissue+is%3Aclosed).
 
 Check the [Wiki](https://github.com/PaesslerAG/PRTGScheduler/wiki) for installation instructions.
+
+# Beta
+Note that this software is currently in a beta state and may contain errors. 
