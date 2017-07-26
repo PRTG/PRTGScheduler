@@ -65,7 +65,6 @@ Function This-TestPHP(){
 
 Function This-AddMenuEntry(){
     $customJS = (Get-Content -Path "C:\Program Files (x86)\PRTG Network Monitor\webroot\javascript\scripts_custom.js")
-
 }
 
 Function This-ExecutePHP($command = ""){
@@ -79,17 +78,14 @@ Function This-ExecutePHP($command = ""){
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
     $p.Start() | Out-Null
-    $p.WaitForExit()
+
     return $p.StandardOutput.ReadToEnd();
   
 }
 
 #endregion
 
-if($ApiToken.Length -eq 0)
-{  Write-Host ([string]::Format($PrtgError,"PHP.exe not found under $($phpPath). Please make sure it's installed!")); }
-
 if(This-TestPHP)
-{ This-ExecutePHP -command "setMaintenance $($ApiToken)" }
+{ This-ExecutePHP -command "setMaintenance }
 else
 { Write-Host ([string]::Format($PrtgError,"PHP.exe not found under $($phpPath). Please make sure it's installed!")); }
