@@ -1,4 +1,5 @@
 # PRTGScheduler
+![https://img.shields.io/badge/-beta-red.svg](https://img.shields.io/badge/-beta-red.svg) 
 ![https://www.codeigniter.com](https://img.shields.io/badge/using-CodeIgniter-orange.svg) 
 ![http://www.php.net](https://img.shields.io/badge/using-PHP-green.svg)
 ![https://github.com/rlanvin/php-rrule](https://img.shields.io/badge/using-phpRRule-blue.svg)
