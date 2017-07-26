@@ -24,7 +24,7 @@ $config['prtg_passhash']      = 0;
 $config['default_timezone']   = "Europe/Berlin";
 $config['weekstart']          = "MO";
 $config['preferred_language'] = "en";
-$config['debug']              = True;
+$config['debug']              = False;
 
 # This decides if the maintenance windows should only be set at least within 5 minutes before they actually start.
 # If set to false, the scheduler will set the upcoming maintenances right away, rendering PRTGs internal option to
