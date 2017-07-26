@@ -21,4 +21,4 @@ Frequently asked questions can be [found in the issues, labeled as questions](ht
 Check the [Wiki](https://github.com/PaesslerAG/PRTGScheduler/wiki) for installation instructions.
 
 # Beta
-Note that this software is currently in a beta state and may contain errors. 
+Note that this software is currently in a beta state and may contain errors. Mainly the validation of maintenance setups needs some work and wrong configurations will cause the sensor to stop working. You'll need to check the debug log for the erroneous configuration then. 
