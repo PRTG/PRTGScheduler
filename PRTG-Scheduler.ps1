@@ -86,6 +86,6 @@ Function This-ExecutePHP($command = ""){
 #endregion
 
 if(This-TestPHP)
-{ This-ExecutePHP -command "setMaintenance }
+{ This-ExecutePHP -command "setMaintenance" }
 else
 { Write-Host ([string]::Format($PrtgError,"PHP.exe not found under $($phpPath). Please make sure it's installed!")); }
