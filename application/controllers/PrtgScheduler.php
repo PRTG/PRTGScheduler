@@ -65,7 +65,7 @@ class PrtgScheduler extends CI_Controller {
 			# join the defective maintenance windows, then we'll create the PRTG output
 			$this->maintenance_model->prtgOut($prtgChannels,$defectMaintenanceWindows);
 
-			# now we can generate the view with all the tables
+			# generate the maintenance report
 			file_put_contents("C:\Program Files (x86)\PRTG Network Monitor\webroot\config_report_maintenances.htm",(string)$this->load->view('prtg',$data,True));
 
 
