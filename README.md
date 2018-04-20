@@ -3,7 +3,7 @@
 ![https://www.codeigniter.com](https://img.shields.io/badge/using-CodeIgniter-orange.svg) 
 ![http://www.php.net](https://img.shields.io/badge/using-PHP-green.svg)
 ![https://github.com/rlanvin/php-rrule](https://img.shields.io/badge/using-phpRRule-blue.svg)
-![https://img.shields.io/maintenance/yes/2018.svg](https://img.shields.io/maintenance/yes/2017.svg)
+![https://img.shields.io/maintenance/yes/2018.svg](https://img.shields.io/maintenance/yes/2018.svg)
 
 With PRTG Scheduler, you can configure customized maintenance windows for every PRTG object (Sensors, Devices, and Groups). It allows for various ways of occurrences, like every first Sunday in January, February and March, or only the first week of every month.
 
