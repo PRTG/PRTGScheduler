@@ -93,7 +93,7 @@ class Maintenance_model extends CI_Model {
             }
 
           # sort the maintenance windows so we can have the closest maintenance window
-          krsort($maintenanceWindows);
+          ksort($maintenanceWindows);
           # point the key function to the first key of the maintenance
           reset($maintenanceWindows);
 
