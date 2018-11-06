@@ -5,6 +5,9 @@
 ![https://github.com/rlanvin/php-rrule](https://img.shields.io/badge/using-phpRRule-blue.svg)
 ![https://img.shields.io/maintenance/yes/2018.svg](https://img.shields.io/maintenance/yes/2018.svg)
 
+# Attention
+This project is currently undergoing a rewrite in Ruby as there are too many issues with the PHP setup, configuration and overall maintainability. Please consider the project unsupported until further notice.		
+
 With PRTG Scheduler, you can configure customized maintenance windows for every PRTG object (Sensors, Devices, and Groups). It allows for various ways of occurrences, like every first Sunday in January, February and March, or only the first week of every month.
 
 # Features
