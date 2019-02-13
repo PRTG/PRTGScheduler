@@ -1,12 +1,10 @@
 # PRTGScheduler
-![https://img.shields.io/badge/-beta-red.svg](https://img.shields.io/badge/-beta-red.svg) 
-![https://www.codeigniter.com](https://img.shields.io/badge/using-CodeIgniter-orange.svg) 
-![http://www.php.net](https://img.shields.io/badge/using-PHP-green.svg)
-![https://github.com/rlanvin/php-rrule](https://img.shields.io/badge/using-phpRRule-blue.svg)
-![https://img.shields.io/maintenance/yes/2018.svg](https://img.shields.io/maintenance/yes/2018.svg)
+![https://img.shields.io/badge/status-abandoned-lightgrey.svg](https://img.shields.io/badge/status-abandoned-lightgrey.svg) 
 
 # Attention
-This project is currently undergoing a rewrite in Ruby as there are too many issues with the PHP setup, configuration and overall maintainability. Please consider the project unsupported until further notice.		
+As the conversion to ruby has unfortunately has been canclled, I've only commited what has been developed with Ruby so far into the ruby branch. It basically does not much yet, but it's a start. It uses Ice_Cube for reccuring event parsing and some other ruby gems which are installed automatically at the first run. I tried to make comments as verbose as possible. Feel free to fork it and finish it. In case you need to use it desperately, version 1 of the master branch should actually still work to a certain extend.
+
+# Description
 
 With PRTG Scheduler, you can configure customized maintenance windows for every PRTG object (Sensors, Devices, and Groups). It allows for various ways of occurrences, like every first Sunday in January, February and March, or only the first week of every month.
 
