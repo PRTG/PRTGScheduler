@@ -1,0 +1,96 @@
+prtg:
+    # the protocol your PRTG Server is using
+    protocol: 'http' 
+    # the IP or DNS name of your PRTG server 
+    host: '' 
+    # Webserver port 
+    port: 80 
+    # The username the scheduler should use (remember to set its timezone to UTC) 
+    username: 'prtgadmin'
+    # The users' passhash 
+    passhash: 1234567890
+    # enable support for invalid TLS certificates
+    ssl_validation: false 
+    # Objects to query PRTG for
+    api:
+        # Please don't change anything below. The URLs are used for API communication and are only templated to cope with future API changes easily.
+        check_login:     "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/table.xml?content=sensors&columns=sensor&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        set_maintenance: "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/editsettings?id=%s&scheduledependency=0&maintenable_=1&maintstart_=%s&maintend_=%s&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        rem_maintenance: "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/editsettings?id=%s&scheduledependency=0&maintenable_=0&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        get_objects:     "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/table.json?content=%{objectType}&output=json&columns=objid,basetype,name,device,group,status,probe,parentid,parent,comments&sortby=-objid&filter_comments=@sub(maintenance)&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        pause_object:    "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/pauseobjectfor.htm?id=%s&pausemsg=%s&duration=%s&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        resume_object:   "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/pauseobjectfor.htm?id=%s&action=1&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        read_property:   "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/getobjectproperty.htm?id=%s&name=%s&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+        write_property:  "%{prtgProtocol}://%{prtgHost}:%{prtgPort}/api/setobjectproperty.htm?id=%s&name=%s&value=%s&username=%{prtgUsername}&passhash=%{prtgPasshash}"
+
+scheduler:
+    version: "2.0"
+    # If there is no timezone configured
+    tz: 'Europe/Berlin'
+    # Start day of the week  
+    weekStart: 'MO'
+    # Language of the maintenance window configuration report. See available locales for possible values
+    language: 'de'  
+    # the locales for l18n. This reflects -
+    available_locales:
+        - "de"
+        - "en"
+        - "es"
+        - "fr"
+        - "ja"
+        - "nl"
+        - "pt-BR"
+        - "ru"
+        - "sv"
+    # Set maintenance on demand, i.e. only shortly before they start. This is if you're configuring maintenances 
+    # via PRTG as well and want to use the scheduler in combination. The threshold is to be set in minutes.
+    setOnDemand: true
+    onDemandThreshold: 5
+    # the various language keys to be used by the maintenance report. Feel free to add new ones.
+    lang:
+        de:
+            menu_entry: "Wartungsfenster" # entry in the reports menu
+            config_report_headline: "Konfigurations&uuml;bersicht: Wartungsfenster"
+            # table headlines 
+            table_headline_sensors: "Sensoren"
+            table_headline_devices: "Ger&auml;te"
+            table_headline_groups: "Gruppen"
+            # table columns 
+            table_objid: "Objekt-ID"
+            table_name: "Name"
+            table_group: "Gruppe"
+            table_probe: "Probe"
+            table_next_maintenance: "N&aumlchstes Wartungsfenster"
+            table_next_start: "N&aumlchster Beginn"
+            table_next_end: "N&aumlchstes Ende"
+            table_duration: "Dauer"
+            table_description: "Beschreibung"
+            table_recurrence: "Wiederholend"
+            table_once: "Einmalig"
+            table_no_maintenances: "Keine Wartungsfenster konfiguriert!"
+            # durations
+            duration_minutes: "Minuten"
+            duration_hours: "Stunden"
+            duration_days: "Tag(e)"
+            duration_months: "Monat(e)"
+            duration_years: "Jahr(e)"
+            # prtg
+            channel_sensor_maintenances: "Sensor-Wartungsfenster"
+            channel_device_maintenances: "Geräte-Wartungsfenster"
+            channel_group_maintenances: "Gruppen-Wartungsfenster"
+            channel_total_maintenances: "Wartungsfenster"
+            channel_erroneous_definitions: "Fehlerhafte Definitionen"
+            unit_maintenances: "Wartungsfenster"
+            unit_erroneous_definitions: "Definitionen"
+        en:
+
+        es:
+
+        fr:
+
+        it:
+
+        jap:
+
+        ne:
+    #https://stackoverflow.com/a/34930821 ?? 
