@@ -1,27 +1,4 @@
-# PRTGScheduler
-![https://img.shields.io/badge/-beta-red.svg](https://img.shields.io/badge/-beta-red.svg) 
-![https://www.codeigniter.com](https://img.shields.io/badge/using-CodeIgniter-orange.svg) 
-![http://www.php.net](https://img.shields.io/badge/using-PHP-green.svg)
-![https://github.com/rlanvin/php-rrule](https://img.shields.io/badge/using-phpRRule-blue.svg)
-![https://img.shields.io/maintenance/yes/2018.svg](https://img.shields.io/maintenance/yes/2018.svg)
+# PRTG Scheduler
 
-# Attention
-This project is currently undergoing a rewrite in Ruby as there are too many issues with the PHP setup, configuration and overall maintainability. Please consider the project unsupported until further notice.		
+As the conversion to ruby has unfortunately has been canclled, here's what has been developed so far. It basically does not much yet, but it's a start. It uses [Ice_Cube](https://github.com/seejohnrun/ice_cube) for reccuring event parsing and some other ruby gems which are installed automatically at the first run. I tried to make comments as verbose as possible. Feel free to fork it and finish it. In case you need to use it desperately, version 1 of the master branch should actually still work to a certain extend.
 
-With PRTG Scheduler, you can configure customized maintenance windows for every PRTG object (Sensors, Devices, and Groups). It allows for various ways of occurrences, like every first Sunday in January, February and March, or only the first week of every month.
-
-# Features
-* Three types of maintenance windows: Repetitive, One/Two Day, Spanning (From-To)
-* Every maintenance can have its own timezone or use the default one
-* Report of currently configured and upcoming maintenances including their start/end date
-and duration, accessible via Reports | Configuration Reports | Maintenance Windows
-*Maintenance Windows can be disabled by outcommenting them
-* Support for seven languages (English, German, Spanish, French, Italian, Japanese, Dutch)
-in the report / sensor channels. New languages can be added easily.
-
-Frequently asked questions can be [found in the issues, labeled as questions](https://github.com/PaesslerAG/PRTGScheduler/issues?q=is%3Aissue+is%3Aclosed).
-
-Check the [Wiki](https://github.com/PaesslerAG/PRTGScheduler/wiki) for installation instructions.
-
-# Beta
-Note that this software is currently in a beta state and may contain errors. Mainly the validation of maintenance setups needs some work and wrong configurations will cause the sensor to stop working. You'll need to check the debug log for the erroneous configuration then. 
